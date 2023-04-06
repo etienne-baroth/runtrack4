@@ -78,15 +78,15 @@ if (isset($_POST["submit"]) && !empty($_POST["titre"]) && !empty($_POST["descrip
 
 <div>
         <main>
-            <h1 id="reservation_title">Formulaire de Réservation</h1>
+            <h1 id="reservation_title" class="text-center text-primary">Formulaire de Réservation</h1>
 
-            <h2>Utilisateur : <?php echo $_SESSION["utilisateur"]["login"] ?> </h2>
+            <h2 class="text-center mt-3">Utilisateur : <?php echo $_SESSION["utilisateur"]["login"] ?> </h2>
 
             <form class="form_reservation" action="reservation-form.php" method="POST">
-                <label for="titre">Titre</label>
-                <input type="text" name="titre" required>
-                <label for="description">Description</label>
-                <input type="text" name="description" required>
+                <label for="titre" class="text-center">Titre</label>
+                <input type="text" name="titre" class="mt-3 text-center" required>
+                <label for="description" class="text-center">Description</label>
+                <input type="text" class="mt-3 text-center" name="description" required>
 
                 <label for="debut">Date de Début</label>
                 <?php
@@ -154,7 +154,7 @@ if (isset($_POST["submit"]) && !empty($_POST["titre"]) && !empty($_POST["descrip
                 </select>
                 <br>
 
-                <label>Date de Fin</label>
+                <label class="mt-3 text-center">Date de Fin</label>
                 <?php
                 if (isset($_GET["date_debut"])) {
                 ?>
@@ -202,7 +202,7 @@ if (isset($_POST["submit"]) && !empty($_POST["titre"]) && !empty($_POST["descrip
                 </select>
                 <br>
                 
-                <input class="submit_btn" type="submit" name="submit" value="Valider ma Réservation">
+                <input class="submit_btn mt-3" type="submit" name="submit" value="Valider ma Réservation">
 
                 <?php
                 if (isset($msg_error)) {

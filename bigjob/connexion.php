@@ -23,7 +23,7 @@ if(isset($_POST['submit'])) {
             "nom" => $user["nom"]
         ];
 
-        header('Location: index.php');
+        header('Location: calendrier.php');
 }
 
 ?>

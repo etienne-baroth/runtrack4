@@ -60,6 +60,8 @@ if (isset($_POST['submit'])) {
         <input type="submit" id="btnInscription" value="Valider" name="submit" class="mt-3 w-50 text-center">
     </form>
 
+    <p id="inscriptionError"></p>
+
     <script src="./js/script.js"></script>
 </body>
 

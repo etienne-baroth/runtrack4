@@ -1,3 +1,34 @@
+<?php
+
+require_once('config.php');
+
+if(isset($_POST['submit'])) {
+
+        $email = htmlspecialchars($_POST['email']);
+        $password = $_POST['password'];
+
+        $getUser = $database->prepare("SELECT* FROM utilisateurs WHERE email = :email AND password = :password");
+
+        $getUser->bindValue(":email", $email);
+        $getUser->bindValue(":password", $password);
+
+        $getUser->execute();
+
+        $user = $getUser->fetch();
+
+
+        $_SESSION["utilisateur"] = [
+            "id" => $user["id"],
+            "prenom" => $user["prenom"],
+            "nom" => $user["nom"]
+        ];
+
+        header('Location: index.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,7 +62,7 @@
 
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 
 </body>
 

@@ -1,3 +1,26 @@
+<?php
+
+require_once('config.php');
+
+
+if (isset($_POST['submit'])) {
+
+    $nom = htmlspecialchars($_POST['nom']);
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $email = htmlspecialchars($_POST['email']);
+    $password = $_POST['password'];
+
+    $request = $database->prepare('INSERT INTO utilisateurs (nom, prenom, email, password) VALUES (?,?,?,?)');
+
+    if ($request->execute(array($nom, $prenom, $email, $password))) {
+
+        header('Location: connexion.php');
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +60,7 @@
         <input type="submit" id="btnInscription" value="Valider" name="submit" class="mt-3 w-50 text-center">
     </form>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
 </body>
 
 </html>
